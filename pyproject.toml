@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dflowfm-bmi-debugger"
+version = "0.1.0"
+description = "Interactive Pygame debugger for 2D D-Flow FM BMI models"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "bmi-python>=0.3.0",
+    "numpy>=1.24",
+    "pygame>=2.5",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+bmi-debugger = "bmi_debugger.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-ra"
